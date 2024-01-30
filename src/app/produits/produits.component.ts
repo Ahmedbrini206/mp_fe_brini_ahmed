@@ -10,6 +10,7 @@ import { Categorie } from '../model/categorie';
   styleUrls: ['./produits.component.css']
 })
 export class ProduitsComponent implements OnInit {
+  idCourant:number=0;
   produits: Array<Produit> = [];
   produitCourant: Produit = new Produit();
   categories: Array<Categorie>=[];
@@ -110,4 +111,17 @@ export class ProduitsComponent implements OnInit {
       this.produits[index] = updatedProduit;
     }
   }
+  private getProduitByCategori( id:number ):void{
+    if (id !== null && id !== undefined){
+this.produitsService.getProduitsParCategorieId(id).subscribe({
+  next:(prod)=>{
+     this.produits=prod;
+     },
+     error: err => {
+      console.log("Erreur get", err);
+    }
+
+
+});
+  }}
 }

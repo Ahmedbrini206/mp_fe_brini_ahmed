@@ -42,14 +42,16 @@
     </div>
 
     <div>
-        <h1 class="mb-4">Liste des produits</h1>
-        <div>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Tous</option>
-              <option *ngFor="let c of categories" [value]="c.id">{{c.libelle}}</option>
-            </select>
-        </div>
+      <h1 class="mb-4">Liste des produits</h1>
+      <div>
+        <select class="form-select" aria-label="Default select example" >
+          <option selected>Tous</option>
+          <option *ngFor="let c of categories" [value]="c.id">{{c.libelle}}</option>
+          [(ngModel)]="idCourant"
+        </select>
+      </div>
     </div>
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -60,7 +62,7 @@
                     <th>Quantiter</th>
                     <th>Date d'achat</th>
                     <th>En Promotion</th>
-                    <th>Categorie</th>
+
 
                     <th colspan="2">Actions</th>
                 </tr>
@@ -74,7 +76,7 @@
                     <td>{{p.quantite}}</td>
                     <td>{{p.dateAchat}}</td>
                     <td>{{p.enPromotion}}</td>
-                    <td>{{p.enPromotion}}</td>
+
 
                     <td>
                         <button (click)="editerProduit(p)" class="btn btn-success me-3">

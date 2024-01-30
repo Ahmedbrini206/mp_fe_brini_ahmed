@@ -34,9 +34,9 @@ export class ProduitsService {
   getCategories(): Observable<Categorie[]>{
     return this.http.get<Categorie[]>(this.urlHote1);
   }
-  getProduitsParCategorieId(c: Categorie): Observable<Produit[]> {
-    const urlAvecParametre = `${this.urlHote1}?id=${c.id}`;
-    return this.http.get<Produit[]>(urlAvecParametre);
+  getProduitsParCategorieId(id:number): Observable<Produit[]> {
+    const urlAvecParametre = `${this.urlHote1}?id=${id}`;
+    return this.http.get<Produit[]>(this.urlHote1+"getprod/"+id);
   }
 
 }

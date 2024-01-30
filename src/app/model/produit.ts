@@ -6,6 +6,5 @@ export class Produit {
     quantite: number | undefined;
     dateAchat: Date |undefined;
     enPromotion: boolean | undefined;
-    categoriId:number |undefined;
 
 }
